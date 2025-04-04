@@ -21,6 +21,10 @@ body {
     background-color: rgba(193, 204, 216, 0.6);
 }
 
+.wrapper > div {
+    margin: 12px 0;
+}
+
 .grid-container {
     min-height: 200px;
     height: 70vh;
@@ -41,7 +45,7 @@ body {
     aspect-ratio: 1 / 1;
 }
 
-.grid-header {
+.grid-header, .grid-footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -53,9 +57,20 @@ button {
     padding: 12px;
     border: 2px solid rgb(47, 79, 148);
     background-color: rgba(193, 204, 216, 0.7);
-    font-size: 18px;
+    font-size: 24px;
 }
 
-button:hover {
-    background-color: rgba(157, 165, 174, 0.9);
+button:hover, button.active-btn:hover{
+    background-color: rgba(95, 100, 107, 0.9);
+}
+
+button.active-btn{
+    background-color: rgba(95, 100, 107, 0.7);
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
