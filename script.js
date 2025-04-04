@@ -5,7 +5,6 @@ function random(n){
 }
 
 function createGrid(n) {
-    grid.innerHTML = '';
     for (let i = 0; i < n*n; i++){
         let pixel = document.createElement("div");
         pixel.classList.add("pixel");
@@ -14,10 +13,15 @@ function createGrid(n) {
         pixel.style.height = heightPercentage;
 
         pixel.addEventListener("mouseenter", () => {
-            colorPixel(pixel, true, true);
+            colorPixel(pixel, rainbowToggle, darkenToggle);
         });
         grid.appendChild(pixel);
     }
+}
+
+function restartGrid(n) {
+    grid.innerHTML = '';
+    createGrid(n);
 }
 
 function colorPixel(pixel, rainbow, darkening) {
@@ -50,15 +54,51 @@ function colorPixel(pixel, rainbow, darkening) {
 }
 
 const resetBtn = document.querySelector("#reset-btn");
+let gridSize = 16;
 console.log(resetBtn);
 resetBtn.addEventListener("click", () => {
-    let gridSize = Number(prompt("Enter grid size (1-100): "));
+    gridSize = Number(prompt("Enter grid size (1-100): "));
     
     while (!gridSize || gridSize > 100 || gridSize < 0) {
         gridSize = Number(prompt("Please enter a number beween 1 and 100: "));
     }
 
-    createGrid(gridSize);
+    restartGrid(gridSize);
 });
 
 createGrid(16);
+
+const blackBtn = document.querySelector(".black-btn");
+const rainbowBtn = document.querySelector(".rainbow-btn");
+const darkenBtn = document.querySelector(".darken-btn");
+
+let rainbowToggle = false;
+let darkenToggle = false;
+
+blackBtn.addEventListener("click", () => {
+    if (rainbowToggle) {
+        rainbowToggle = false;
+        rainbowBtn.classList.remove("active-btn");
+        blackBtn.classList.add("active-btn");
+    }
+});
+
+rainbowBtn.addEventListener("click", () => {
+    if (!rainbowToggle) {
+        rainbowToggle = true;
+        rainbowBtn.classList.add("active-btn");
+        blackBtn.classList.remove("active-btn");
+    }
+});
+
+darkenBtn.addEventListener("click", () => {
+    restartGrid(gridSize)
+    if (!darkenToggle) {
+        darkenToggle = true;
+        darkenBtn.classList.add("active-btn");
+    }
+    else {
+        darkenToggle = false;
+        darkenBtn.classList.remove("active-btn");
+    }
+});
