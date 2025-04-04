@@ -17,15 +17,24 @@ body {
     align-items: center;
     padding: 32px;
     background-color: rgba(193, 204, 216, 0.6);
-    width: 70%;
+}
 
-    min-height: fit-content;
-    min-width: fit-content;
+.grid-container {
+    min-height: 200px;
+    height: 70vh;
+    max-height: 800px;
+    aspect-ratio: 1 / 1;
 }
 
 .grid {
-    min-width: 400px;
-    min-height: 400px;
+    height: 100%;
     aspect-ratio: 1 / 1;
-    width: 90%;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pixel {
+    border: 1px solid grey;
+    aspect-ratio: 1 / 1;
 }
