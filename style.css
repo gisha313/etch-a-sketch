@@ -11,6 +11,11 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: rgba(211, 243, 246, 0.8);
+}
+
+h1 {
+    font-size: 40px;
 }
 
 .wrapper {
@@ -19,6 +24,7 @@ body {
     align-items: center;
     padding: 32px;
     background-color: rgba(193, 204, 216, 0.6);
+    box-shadow: 5px 5px 10px rgba(154, 179, 180, 0.8);
 }
 
 .wrapper > div {
@@ -44,6 +50,7 @@ body {
 .pixel {
     border: 1px solid grey;
     aspect-ratio: 1 / 1;
+    background-color: white;
 }
 
 .grid-header, .grid-footer {
@@ -90,4 +97,8 @@ button.active-btn{
 
 input#range{
     width: 100%;
+}
+
+.range-container{
+    min-width: 250px;
 }
