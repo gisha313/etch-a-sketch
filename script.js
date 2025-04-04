@@ -55,14 +55,7 @@ function colorPixel(pixel, rainbow, darkening) {
 
 const resetBtn = document.querySelector("#reset-btn");
 let gridSize = 16;
-console.log(resetBtn);
 resetBtn.addEventListener("click", () => {
-    gridSize = Number(prompt("Enter grid size (1-100): "));
-    
-    while (!gridSize || gridSize > 100 || gridSize < 0) {
-        gridSize = Number(prompt("Please enter a number beween 1 and 100: "));
-    }
-
     restartGrid(gridSize);
 });
 
@@ -101,4 +94,9 @@ darkenBtn.addEventListener("click", () => {
         darkenToggle = false;
         darkenBtn.classList.remove("active-btn");
     }
+});
+
+const gridSizeRange = document.querySelector("#range");
+gridSizeRange.addEventListener("input", () => {
+    gridSize = Number(gridSizeRange.value);
 });
