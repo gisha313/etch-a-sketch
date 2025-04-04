@@ -97,6 +97,8 @@ darkenBtn.addEventListener("click", () => {
 });
 
 const gridSizeRange = document.querySelector("#range");
+const gridSizeSpan = document.querySelector(".grid-size");
 gridSizeRange.addEventListener("input", () => {
     gridSize = Number(gridSizeRange.value);
+    gridSizeSpan.textContent = gridSize.toString();
 });
